@@ -6,7 +6,7 @@
   </a>
 </div>
 
-<h3 align="center">NestJS npm Package Starter</h3>
+<h3 align="center">SSR Service for usage in NestJS Applications</h3>
 
 <div align="center">
   <a href="https://nestjs.com" target="_blank">
@@ -17,24 +17,12 @@
 ### Installation
 
 1. Clone the repo
-2. Run npm/yarn install
+2. Run yarn install
 
 ```bash
-cd nestjs-package-starter
-npm install
+cd puppy-nest
+yarn install
 ```
-
-## Change Log
-
-See [Changelog](CHANGELOG.md) for more information.
-
-## Contributing
-
-Contributions welcome! See [Contributing](CONTRIBUTING.md).
-
-## Author
-
-**John Biundo (Y Prospect on [Discord](https://discord.gg/G7Qnnhy))**
 
 ## License
 
