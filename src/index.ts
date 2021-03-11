@@ -1,1 +1,1 @@
-export * from './rendering.service';
+export * from './rendering.module';
