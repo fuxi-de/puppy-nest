@@ -15,9 +15,9 @@ export class RenderingService {
     try {
       await page.goto(url, { waitUntil: 'networkidle0' });
       await page.waitForSelector(selector);
-    } catch (err) {
-      console.error(err);
-      throw new Error('page.goto/waitForSelector timed out.');
+    } catch (e) {
+      console.error(e);
+      throw new Error('error while preparing for render');
     }
 
     const html = await page.content();
