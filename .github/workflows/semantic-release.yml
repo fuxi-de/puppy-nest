@@ -1,26 +1,25 @@
 name: Semantic Release
-
 on:
   push:
-    branches: ["master"]
-
+    branches:
+      - master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
     steps:
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v2
-        id: semantic
         with:
-          extra_plugins: |
-            @semantic-release/git
-            @semantic-release/changelog
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
