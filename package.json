@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "start:dev": "tsc -w",
-    "prebuild": "rimraf ./dist",
+    "prebuild": "rm -rf ./dist",
     "build": "tsc",
     "prepare": "yarn build",
     "format": "prettier --write \"src/**/*.ts\"",
