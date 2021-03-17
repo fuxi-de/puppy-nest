@@ -1,6 +1,10 @@
 {
   "name": "@fuxifuchs/puppy-nest",
-  "version": "0.0.2",
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
   "description": "ssr module implemented via puppeteer for usage in NestJS",
   "author": "Florian Schildwächter <florian.schildwaechter@gmail.com>",
   "license": "MIT",
