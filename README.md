@@ -57,12 +57,12 @@ There should be some console output looking like the following:
 [Nest] 39175   - 2021-03-11 16:48:54   [RouterExplorer] Mapped {/prerender, GET} route +3ms
 ```
 
-This means, that all went as expected and your application now accepts **GET** requests under the _/prerender_ endpoint. This is coming straight from the **Rendering.module**. The _/prerender_ endpoint needs to be called with a query param called **url** which specifies what Resource should be prerendered by puppeteer and will return the rendered HTML and how long the Headless rendering took as response.
+This means, that all went as expected and your application now accepts **GET** requests under the _/prerender_ endpoint. This is coming straight from the **Rendering.module**. The _/prerender_ endpoint needs to be called with a query param called **url** which specifies what Resource should be prerendered and a query param called **selector** which specifies which HTML Selector should be waited for and will return the rendered HTML and how long the Headless rendering took as response.
 
 An example Request would look like this:
 
 ```bash
-curl --location --request GET 'http://localhost:3000/prerender/?url=https://google.de'
+curl --location --request GET 'http://localhost:3000/prerender/?url=https://google.de&selector=body'
 ```
 
 For any changes required to your SPA to make this technique work, please refer to the [Article](https://developers.google.com/web/tools/puppeteer/articles/ssr#2_ssr_function) by Eric Bidelman as he already described what is necessary in great detail :). 
