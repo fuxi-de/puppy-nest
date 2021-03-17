@@ -11,8 +11,11 @@ export class RenderingController {
     @Res() res: Response,
     @Req() req: Request,
   ): Promise<Response> {
-    const { url } = req.query;
-    const { html, ttRenderMs } = await this.renderingService.render(url);
+    const { url, selector } = req.query;
+    const { html, ttRenderMs } = await this.renderingService.render(
+      url as string,
+      selector as string,
+    );
     res.set(
       'Server-Timing',
       `Prerender;dur=${ttRenderMs};desc="Headless render time (ms)"`,

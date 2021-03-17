@@ -8,12 +8,13 @@ export class RenderingService {
   constructor(@InjectBrowser() private readonly browser: Browser) {
     this.browser = browser;
   }
-  async render(url): Promise<ssrDto> {
+  async render(url: string, selector: string): Promise<ssrDto> {
     const start = Date.now();
 
     const page = await this.browser.newPage();
     try {
       await page.goto(url, { waitUntil: 'networkidle0' });
+      await page.waitForSelector(selector);
     } catch (err) {
       console.error(err);
       throw new Error('page.goto/waitForSelector timed out.');
